@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOME</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="icon" href="images/OLX-Logo.png" type="icon" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <!-- <img src="pic_trulli.jpg" alt="Italian Trulli"> -->
+      <a class="navbar-brand" href="/alltrains">All Trains</a>
+      <a class="navbar-brand" href="/mybookings">My Booking History</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <!-- <li class="nav-item active " >
+            <a class="nav-link" href="#" id="greetUser"></a>
+          </li> -->
+          <li class="nav-item active " >
+            <form action="/avlakki" method="POST">
+            <a class="nav-link">
+              <input class="form-control border-secondary py-2" type="search" name="search" id="search" placeholder="Search here"/>check ticket through PNR</a>
+           <input type="submit" value="Go">  
+           </form>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          
+          <li class="nav-item" class="inActiveUser" id="inActiveUser">
+            <a id = "loggin" class="nav-link" href="/login">Sign In</a>
+          </li>
+           <li class="nav-item" class="inActiveUser" id="inActiveUser">
+            <a id = "loggin" class="nav-link" href="/reg">Register</a>
+          </li>
+          <li class="activeUser nav-item" id="activeUser">
+            <a class="nav-link" href="/logout">Sign Out</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+        
+  <h1 class="suh text-center text-dark">Recent Ads</h1>
+  <div class="container">
+  <div class="form-group">
+    <label for="category"><b>Select Category</b></label>
+    <select onchange="selectCategory()" name="category" id="homePageCategorySelection" class="form-control" id="category">
+        <option>All Categories</option>
+        <option>Vehicles</option>
+        <option>Electronics And Home Appliances</option>
+        <option>Furnitue,Home And Decoration</option>
+        <option>Fashion And Beauty</option>
+        <option>Books Sports And Hobbies</option>
+    </select>
+  </div>
+</div>   
+
+<div class="banner-main">
+  <div class="container">
+     <div class="text-bg">
+        <h1>luharCom<br><strong class="white">Amazing Tour</strong></h1>
+        <div class="container">
+           <form class="main-form" action="/cust" method="POST">
+              <h3>Find Your Tour</h3>
+              <div class="row">
+                 <div class="col-md-9">
+                    <div class="row">
+                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                          <label >From</label>
+                          <input class="form-control" placeholder="From" type="text" name="from">
+                       </div>
+                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                        <label >To</label>
+                        <input class="form-control" placeholder="To" type="text" name="to">
+                     </div>
+                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                          
+                       </div>
+                      
+                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                          <label >Date</label>
+                          <input class="form-control" placeholder="Any" type="date" name="date">
+                       </div>
+                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                        <button value = 'submit' name="Submit">submit</button>
+                     </div>
+                    </div>
+                 </div>
+              </div>
+           </form>
+        </div>
+     </div>
+  </div>
+</div><style>
+  body {
+    background-image: url('https://images.unsplash.com/photo-1545177693-466cc24acb1d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGhkJTIwcGhvdG9zfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+     background-size: 100% 100%;
+  }
+  footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0px;
+  width: 100%;
+
+}
+  </style>
+  <!-- bootstrap Modal -->
+    
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="messages-text" class="col-form-label">Messages:</label>
+            <div class="modal-body" id="messages-text"><p id="modal-list"></p></div>
+          </div>
+          <div class="form-group">
+            <label for="recipient-messege" class="col-form-label">Type Your Message Here</label>
+            <input type="text" class="form-control" id="recipient-messege">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="sendMessage()">Send Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container" id="container">
+    <div class="row" id="row">
+      
+    </div>
+  </div>  
+     
+  <footer class="">
+    <div class="container">
+        <div class="container">
+            <address style="color:#f0f5f5;font-family:Times New Roman;Text-Align:text-center">
+                    Website Owner : LuharCom<sup>©</sup><br>
+                    Cell No.      : 9980275352<br>
+                    Facebook      : <a href="#">Find Us On Facebook</a><br>
+                    Twitter       : <a href="#">Find Us On Twitter</a><br>
+                    Github       : <a href="#">Find Us On Github</a><br>
+                    </address>
+    </div>
+  </footer>
+
+</body>
+</html>
