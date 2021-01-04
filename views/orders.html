@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Orders Status</title>
+</head>
+<body>
+    <div class="table-data">
+<h2>My orders</h2>
+    <table border="1">
+        <tr>
+            <th>Product</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>order_status</th>
+            <th>order_time</th>
+        </tr>
+        
+        <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.productName %></td>
+            <td><%=data.size %></td>
+            <td><%=data.price %></td>
+            <td><%=data.order_status %></td>
+            <td><%=data.order_time %></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+        <style>
+            table,h2 { 
+                border-spacing: 1; 
+                border-collapse: collapse; 
+                background:white;
+                border-radius:6px;
+                overflow:hidden;
+                max-width:800px; 
+                width:100%;
+                margin:0 auto;
+                position:relative; 
+                text-align: center;
+            }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+  body               { 
+  background:#9BC86A; 
+  font:400 14px 'Calibri','Arial';
+  padding:20px;
+}
+blockquote {
+  color:white;
+  text-align:center;
+}
+            </style>
+    </table>
+    </div>
+</body>
+</html>

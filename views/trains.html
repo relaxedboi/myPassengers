@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+  <title>All Trains</title>
+</head>
+<body>
+  <a href="/"><h3>home</h3></a>
+    <div class="table-data">
+<h2>All Trains</h2>
+    <table border="1">
+        <tr>
+            <th>Train Number</th>
+            <th>Train Name</th>
+            <th>Start Station</th>
+            <th>End Station</th>
+            <th>Train Type</th>
+            <th>Get all timings</th>
+        </tr>
+        
+        <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(data){
+        %>
+        <tr>
+            <td><%=data.t_number %></td>
+            <td><%=data.train_name %></td>
+            <td><%=data.start_station %></td>
+            <td><%=data.end_station %></td>
+            <td><%=data.train_type %></td>
+            <td>
+              <form action="/timings" method="POST">
+              <input type = "hidden" name = "t_number" value = <%=data.t_number %>  />
+              <input type = "hidden" name = "date" value = <%=date %>  />
+              <input type = "hidden" name = "from" value = <%= from %>  />
+              <input type = "hidden" name = "to" value = <%= to %>  />
+              <input type="submit" value="Click" />
+            </form>
+            </td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+
+        <style>
+            table,h2 { 
+                border-spacing: 1; 
+                border-collapse: collapse; 
+                background:white;
+                border-radius:6px;
+                overflow:hidden;
+                max-width:800px; 
+                width:100%;
+                margin:0 auto;
+                position:relative; 
+                text-align: center;
+            }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+  body               { 
+  background:#9BC86A; 
+  font:400 14px 'Calibri','Arial';
+  padding:20px;
+}
+blockquote {
+  color:white;
+  text-align:center;
+}
+            </style>
+    </table>
+    </div>
+</body>
+</html>

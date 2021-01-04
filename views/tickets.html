@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Available Seats</title>
+</head>
+<body>
+  <a href="/"><h3>home</h3></a>
+    <div class="table-data">
+<h2>Available seats according to coaches</h2>
+    <table border="1">
+        <tr>
+          <th>Train Number</th>
+          <th>Date</th>
+            <th>Sleeper available</th>
+            <th>FirstAC available</th>
+            <th>SecondAC available</th>
+            <th>ThirdAC available</th>
+            <th>Seating available</th>  
+        </tr>
+        
+        <%
+        if(userData.length!=0){
+        var i=1;
+        userData.forEach(function(data){
+        %>
+        <tr>
+          <td><%= data.t_number %></td>
+            <td><%= data.date_ %></td>
+            <td><%= data.sleeper %>
+              <form action="/passangers" method="POST">
+                <input type = "hidden" name = "date" value = <%= date %>  />
+              <input type="hidden" name="t_number" value=<%= data.t_number %> />
+              <input type="hidden" name="from" value=<%= from %> />
+              <input type="hidden" name="to" value=<%= to %> />
+              <input type="hidden" name="seat" value="sleeper" />
+                <input type="submit" value="Click" />
+              </form>
+            </td>
+            <td><%= data.firstAC  %>
+              <form action="/passangers" method="POST">
+              <input type = "hidden" name = "date" value = <%=date %>  />
+              <input type="hidden" name="t_number" value=<%= data.t_number %> />
+              <input type="hidden" name="from" value=<%= from %> />
+              <input type="hidden" name="to" value=<%= to %> />
+              <input type="hidden" name="seat" value="firstAC" />
+              <input type="submit" value="Click" />
+            </form>
+          </td>
+            <td><%=data.secondAC  %>
+              <form action="/passangers" method="POST">
+              <input type = "hidden" name = "date" value = <%=date %>  />
+              <input type="hidden" name="t_number" value=<%= data.t_number %> />
+              <input type="hidden" name="from" value=<%= from %> />
+              <input type="hidden" name="to" value=<%= to %> />
+              <input type="hidden" name="seat" value="secondAC" />
+              <input type="submit" value="Click" />
+            </form>
+          </td>
+            <td><%=data.thirdAC %>
+              <form action="/passangers" method="POST">
+              <input type = "hidden" name = "date" value = <%=date %>  />
+              <input type="hidden" name="t_number" value=<%= data.t_number %> />
+              <input type="hidden" name="from" value=<%= from %> />
+              <input type="hidden" name="to" value=<%= to %> />
+              <input type="hidden" name="seat" value="thirdAC" />
+              <input type="submit" value="Click" />
+            </form>
+          </td>
+            <td><%= data.seating %>
+              <form action="/passangers" method="POST">
+              <input type = "hidden" name = "date" value = <%=date %>  />
+              <input type="hidden" name="t_number" value=<%= data.t_number %> />
+              <input type="hidden" name="from" value=<%= from %> />
+              <input type="hidden" name="to" value=<%= to %> />
+              <input type="hidden" name="seat" value="seating" />
+              <input type="submit" value="Click" />
+            </form>
+          </td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+        <style>
+            table,h2 { 
+                border-spacing: 1; 
+                border-collapse: collapse; 
+                background:white;
+                border-radius:6px;
+                overflow:hidden;
+                max-width:700px; 
+                width:100%;
+                margin:0 auto;
+                position:relative;
+                text-align: center; 
+            }
+  /* Zebra striping */
+  tr:nth-of-type(odd) { 
+    background: #eee; 
+  }
+  th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+  }
+  td, th { 
+    padding: 6px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+  }
+  body               { 
+  background:grey; 
+  font:400 14px 'Calibri','Arial';
+  padding:20px;
+}
+blockquote {
+  color:white;
+  text-align:center;
+}
+            </style>
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add passangers</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Add passanger Details</h2>
+  <label><h3>You can book only six tickts at once:</h3></label>
+  <form class="form-inline" id="form1" action="/addpass" method="POST">
+    <label for="numberofpass" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="numberofpass" placeholder="Number of passangers added now" name="numberofpass">
+
+    <label for="fullname1" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="fullname1" placeholder="Full Name" name="fullname1">
+    <label for="gender1" class="mb-2 mr-sm-2"></label>
+    <select type="text" class="form-control mb-2 mr-sm-2" id="gender1" placeholder="Gender" name="gender1">
+    <option>Male</option>
+    <option>Female</option>
+    </select>
+    <label for="age1" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="age1" placeholder="Age" name="age1">
+  
+    <label for="fullname2" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="fullname2" placeholder="Full Name" name="fullname2">
+    <label for="gender2" class="mb-2 mr-sm-2"></label>
+    <select type="text" class="form-control mb-2 mr-sm-2" id="gender2" placeholder="Gender" name="gender2">
+    <option>Male</option>
+    <option>Female</option>
+    </select>
+    <label for="age2" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="age2" placeholder="Age" name="age2">
+  
+    <label for="fullname3" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="fullname3" placeholder="Full Name" name="fullname3">
+    <label for="gender3" class="mb-2 mr-sm-2"></label>
+    <select type="text" class="form-control mb-2 mr-sm-2" id="gender3" placeholder="Gender" name="gender3">
+    <option>Male</option>
+    <option>Female</option>
+    </select>
+    <label for="age3" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="age3" placeholder="Age" name="age3">
+  
+    <label for="fullname4" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="fullname4" placeholder="Full Name" name="fullname4">
+    <label for="gender4" class="mb-2 mr-sm-2"></label>
+    <select type="text" class="form-control mb-2 mr-sm-2" id="gender4" placeholder="Gender" name="gender4">
+      <option>Male</option>
+      <option>Female</option>
+      </select>
+      <label for="age4" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="age4" placeholder="Age" name="age4">
+   
+    <label for="fullname5" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="fullname5" placeholder="Full Name" name="fullname5">
+    <label for="gender5" class="mb-2 mr-sm-2"></label>
+    <select type="text" class="form-control mb-2 mr-sm-2" id="gender5" placeholder="Gender" name="gender5">
+      <option>Male</option>
+      <option>Female</option>
+      </select>
+    <label for="age5" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="age5" placeholder="Age" name="age5">
+   
+    <label for="fullname6" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="fullname6" placeholder="Full Name" name="fullname6">
+    <select for="gender6" class="mb-2 mr-sm-2"></label>
+      <option>Male</option>
+      <option>Female</option>
+      </select>
+      <input type="text" class="form-control mb-2 mr-sm-2" id="gender6" placeholder="Gender" name="gender6">
+    <label for="age6" class="mb-2 mr-sm-2"></label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="age6" placeholder="Age" name="age6">
+    
+    <input type = "hidden" name = "date" value = <%= date %>  />
+    <input type="hidden" name="t_number" value=<%= t_number %> /> 
+    <input type="hidden" name="from" value=<%= from %> />
+    <input type="hidden" name="to" value=<%= to %> />
+    <input type="hidden" name="seat" value=<%= seat %> />  
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+      <button value = 'submit' name="Submit">submit</button>
+   </div>
+  </form>
+
+</div>
+<style>
+body               { 
+  background:#9BC86A; 
+  font:400 14px 'Calibri','Arial';
+  padding:20px;
+}
+</style>
+</body>
+</html>
